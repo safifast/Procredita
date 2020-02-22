@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="91px" height="91px" viewBox="0 0 91 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 52</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="75" height="75" rx="11"></rect>
+        <filter x="-18.7%" y="-13.3%" width="137.3%" height="137.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.168627451   0 0 0 0 0.4   0 0 0 0 0.929411765  0 0 0 0.598503059 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-52" transform="translate(8.000000, 4.000000)">
+            <g id="Rectangle-Copy-17">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#2B66ED" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Group-68" transform="translate(37.500000, 37.500000) rotate(45.000000) translate(-37.500000, -37.500000) translate(28.000000, 28.000000)" stroke="#FFFFFF" stroke-width="2">
+                <line x1="9.21751442" y1="0.217514421" x2="9.21751442" y2="18.2175144" id="Path-6"></line>
+                <line x1="9.21751442" y1="0.217514421" x2="9.21751442" y2="18.2175144" id="Path-6" transform="translate(9.217514, 9.217514) rotate(-90.000000) translate(-9.217514, -9.217514) "></line>
+            </g>
+        </g>
+    </g>
+</svg>

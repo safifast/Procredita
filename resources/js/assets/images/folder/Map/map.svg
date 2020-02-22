@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="453px" height="405px" viewBox="0 0 453 405" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 26</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,1.84741111e-13 L207,1.84741111e-13 C211.418278,1.6823261e-13 215,3.581722 215,8 L215,159.017378 C215,163.435656 211.418278,167.017378 207,167.017378 L8,167.017378 C3.581722,167.017378 -5.63023359e-14,163.435656 -5.68434189e-14,159.017378 L-5.68434189e-14,8 C-5.73845019e-14,3.581722 3.581722,1.85552736e-13 8,1.84741111e-13 Z" id="path-1"></path>
+        <filter x="-302.3%" y="-365.2%" width="704.7%" height="878.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="10" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="40" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="200" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.07 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polyline id="path-3" points="12.8944264 10.4647715 23.3383967 5.77315973e-14 33.4223949 10.1040823 31.2942744 14.5143265"></polyline>
+        <filter x="-3263.5%" y="-4260.0%" width="6550.2%" height="9134.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="10" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="40" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="200" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.07 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-858.000000, -3141.000000)">
+            <g id="Group-26" transform="translate(977.000000, 3212.000000)">
+                <g id="Group-6" transform="translate(0.000000, 7.982622)">
+                    <g id="Rectangle-33">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <text id="1686-Oladele-Olashor" font-family="Raleway-Regular, Raleway" font-size="10" font-weight="normal" fill="#000000">
+                        <tspan x="54" y="30.017378">1686 Oladele Olashore Street, </tspan>
+                        <tspan x="54" y="41.017378">Off Sanusi Fafunwa Street, </tspan>
+                        <tspan x="54" y="52.017378">Victoria Island, Lagos.</tspan>
+                    </text>
+                    <text id="+-(234)-814-7630-499" font-family="Raleway-SemiBold, Raleway" font-size="12" font-weight="500" fill="#0091FF">
+                        <tspan x="55" y="91.017378">+ (234) 814 7630 499 </tspan>
+                    </text>
+                    <text id="info@procredita.com" font-family="Raleway-Regular, Raleway" font-size="12" font-weight="normal" fill="#041E8B">
+                        <tspan x="53" y="135.017378">info@procredita.com</tspan>
+                    </text>
+                    <path d="M27,25.017378 C29.7614237,25.017378 32,27.304596 32,30.1260224 C32,30.8661948 31.8459363,31.5696018 31.5687861,32.2045932 L31.5717073,32.2047175 L27.0155178,42.017378 L22.513599,32.3975083 C22.1872208,31.7132304 22,30.9419654 22,30.1260224 C22,27.304596 24.2385763,25.017378 27,25.017378 Z" id="Combined-Shape" stroke="#041E8B" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval-18" fill="#6D7278" cx="27.5" cy="30.517378" r="1.5"></circle>
+                    <g id="Group-25" transform="translate(25.849956, 87.879049) rotate(-30.000000) translate(-25.849956, -87.879049) translate(22.349956, 79.879049)">
+                        <line x1="0.605489774" y1="3.83713884" x2="0.605489774" y2="10.7035978" id="Line-9" stroke="#6D7278" stroke-linecap="square"></line>
+                        <ellipse id="Oval-15" stroke="#041E8B" fill="#FFFFFF" cx="3.43110872" cy="3.02932013" rx="3.02744887" ry="3.02932013"></ellipse>
+                        <ellipse id="Oval-15-Copy" stroke="#041E8B" fill="#FFFFFF" cx="3.43110872" cy="12.7231446" rx="3.02744887" ry="3.02932013"></ellipse>
+                    </g>
+                    <g id="Group-28" transform="translate(19.000000, 127.017378)">
+                        <polyline id="Path-17" stroke="#6D7278" stroke-linecap="round" stroke-linejoin="round" points="0.823529412 0.717427199 6.98751786 4.48148148 13.5882353 -1.48213951e-12"></polyline>
+                        <path d="M1,-0.5 L13,-0.5 C13.8284271,-0.5 14.5,0.171572875 14.5,1 L14.5,10 C14.5,10.8284271 13.8284271,11.5 13,11.5 L1,11.5 C0.171572875,11.5 -0.5,10.8284271 -0.5,10 L-0.5,1 C-0.5,0.171572875 0.171572875,-0.5 1,-0.5 Z" id="Rectangle-31" stroke="#041E8B"></path>
+                    </g>
+                </g>
+                <g id="Path-18">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="23px" viewBox="0 0 25 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>commentjd</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Support" transform="translate(-28.000000, -466.000000)" fill="#0091FF" fill-rule="nonzero" stroke="#0091FF" stroke-width="0.1">
+            <g id="comment" transform="translate(29.000000, 467.000000)">
+                <path d="M19.8379212,0 L3.16207885,0 C1.41854857,0 0,1.40751377 0,3.13810237 L0,13.2659882 C0,14.9926759 1.41237182,16.3979606 3.15084838,16.4040906 L3.15084838,21 L9.80616457,16.4040906 L19.8379212,16.4040906 C21.5814514,16.4040906 23,14.9962981 23,13.2659882 L23,3.13810237 C23,1.40751377 21.5814514,0 19.8379212,0 Z M21.6523438,13.2659882 C21.6523438,14.258757 20.8384155,15.066653 19.8379212,15.066653 L9.38333738,15.066653 L4.49850463,18.4400608 L4.49850463,15.066653 L3.16207885,15.066653 C2.16158449,15.066653 1.34765625,14.258757 1.34765625,13.2659882 L1.34765625,3.13810237 C1.34765625,2.14505492 2.16158449,1.33743764 3.16207885,1.33743764 L19.8379212,1.33743764 C20.8384155,1.33743764 21.6523438,2.14505492 21.6523438,3.13810237 L21.6523438,13.2659882 Z" id="Shape"></path>
+                <polygon id="Path" points="6 5 17 5 17 6 6 6"></polygon>
+                <polygon id="Path" points="6 8 17 8 17 9 6 9"></polygon>
+                <polygon id="Path" points="6 11 17 11 17 12 6 12"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

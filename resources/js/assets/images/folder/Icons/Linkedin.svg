@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 29</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-379.000000, -3359.000000)">
+            <g id="Group-29" transform="translate(379.000000, 3359.000000)">
+                <rect id="Rectangle-Copy" fill="#0091FF" x="0" y="0" width="31" height="31" rx="8"></rect>
+                <path d="M10,11 C10,10.4186047 10.4096386,10 11,10 C11.5903614,10 12,10.4186047 12,11 C12,11.5813953 11.5903614,12 11,12 C10.4096386,12 10,11.5813953 10,11 Z M10,21 L10,13 L12,13 L12,21 L10,21 Z M14,21 L14,13.0882353 L16.0074488,13.0882353 L16.0074488,14.4705882 C16.5027933,13.4852941 17.3370577,13.0147059 18.4320298,13 C19.9962756,13 21,14.1764706 21,16.0294118 L21,21 L18.9925512,21 L18.9925512,16.6911765 C18.9925512,15.6911765 18.4711359,15.0735294 17.6108007,15.0735294 C16.6070764,15.0882353 16.0074488,15.9411765 16.0074488,17.1029412 L16.0074488,21 L14,21 Z" id="in" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
