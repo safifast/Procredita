@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 24, 2020 at 11:18 AM
+-- Generation Time: Feb 17, 2020 at 05:07 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -45,68 +45,21 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `histories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `loan_amount` int(11) DEFAULT NULL,
-  `repayment_due` int(11) DEFAULT NULL,
+  `loan_amount` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `file_size` int(11) DEFAULT NULL,
+  `file_size` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `jobs`
+-- Dumping data for table `histories`
 --
 
-CREATE TABLE `jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attempts` tinyint(3) UNSIGNED NOT NULL,
-  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
-  `available_at` int(10) UNSIGNED NOT NULL,
-  `created_at` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `loans`
---
-
-CREATE TABLE `loans` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `amount` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `request_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `loan_requests`
---
-
-CREATE TABLE `loan_requests` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `loan_id` int(11) NOT NULL,
-  `loan_duration` int(11) NOT NULL,
-  `monthly_repayment` int(11) NOT NULL,
-  `monthly_repayment_due` int(11) NOT NULL DEFAULT 0,
-  `monthly_repayment_recived` int(11) NOT NULL DEFAULT 0,
-  `total_repayment` int(11) NOT NULL,
-  `total_interest` int(11) NOT NULL,
-  `approved` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `histories` (`id`, `loan_amount`, `user_id`, `file_size`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2000000, 1, 2, '2020-02-15 21:29:20', '2020-02-15 21:29:20', NULL),
+(2, 3300000, 1, 2, '2020-02-15 21:29:32', '2020-02-15 21:29:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,14 +85,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
 (6, '2016_06_01_000004_create_oauth_clients_table', 1),
 (7, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
-(8, '2019_05_03_000001_create_customer_columns', 1),
-(9, '2019_05_03_000002_create_subscriptions_table', 1),
-(10, '2019_08_19_000000_create_failed_jobs_table', 1),
-(11, '2020_02_15_172400_create_histories_table', 1),
-(12, '2020_02_18_074205_create_loan_requests_table', 1),
-(13, '2020_02_19_160049_create_user_details_table', 1),
-(14, '2020_02_23_094039_create_jobs_table', 1),
-(15, '2020_02_23_124248_create_loans_table', 1);
+(8, '2019_08_19_000000_create_failed_jobs_table', 1),
+(9, '2020_02_11_112735_create_user_details_table', 1),
+(10, '2020_02_15_172400_create_histories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -158,6 +106,15 @@ CREATE TABLE `oauth_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('1115e03eecc99bc1a74f5aa05c2a9cb40f975c44c28d563ed65eb591cfff5ffe0cae1aa4dfa660da', 1, 1, 'AppName', '[]', 0, '2020-02-15 22:22:02', '2020-02-15 22:22:02', '2021-02-16 04:22:02'),
+('20271d6005aa2a2859c76a73a36d994fb43844d0fef9b06da88221fb1944108ed62ab7a168989a87', 2, 1, 'AppName', '[]', 0, '2020-02-15 21:32:27', '2020-02-15 21:32:27', '2021-02-16 03:32:27'),
+('a0a91f799d7c448ca66ec47fd4af90419d6232c7d3e1689e9eb4d0e3619d6f61b5bb9cbe860ffe7c', 1, 1, 'AppName', '[]', 0, '2020-02-15 21:27:51', '2020-02-15 21:27:51', '2021-02-16 03:27:51');
 
 -- --------------------------------------------------------
 
@@ -198,8 +155,8 @@ CREATE TABLE `oauth_clients` (
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Laravel Personal Access Client', '4phcDe9ntkDqwLmbdd4iSA9tjeOZxVEv03TDcVi1', 'http://localhost', 1, 0, 0, '2020-02-23 09:16:48', '2020-02-23 09:16:48'),
-(2, NULL, 'Laravel Password Grant Client', '0TDVNQhwInzmRzNSU3DkYLLyhfu0lxtC775PcLr9', 'http://localhost', 0, 1, 0, '2020-02-23 09:16:48', '2020-02-23 09:16:48');
+(1, NULL, 'Laravel Personal Access Client', 'FElOXS9eE8CAHLDWgZyzzFA0nfLiU5vFT0OZtbpW', 'http://localhost', 1, 0, 0, '2020-02-15 21:26:01', '2020-02-15 21:26:01'),
+(2, NULL, 'Laravel Password Grant Client', 'LUtK30ks0obA24g98kBdghaSqN1LumePB4O3XoWe', 'http://localhost', 0, 1, 0, '2020-02-15 21:26:01', '2020-02-15 21:26:01');
 
 -- --------------------------------------------------------
 
@@ -219,7 +176,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 --
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2020-02-23 09:16:48', '2020-02-23 09:16:48');
+(1, 1, '2020-02-15 21:26:01', '2020-02-15 21:26:01');
 
 -- --------------------------------------------------------
 
@@ -249,26 +206,6 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subscriptions`
---
-
-CREATE TABLE `subscriptions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_plan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `trial_ends_at` timestamp NULL DEFAULT NULL,
-  `ends_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -280,25 +217,16 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `card_brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `card_last_four` varchar(4) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `trial_ends_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `stripe_id`, `card_brand`, `card_last_four`, `trial_ends_at`) VALUES
-(1, 'f name l name', 'admin@gmail.com', NULL, '$2y$10$7pM/wDRb2XqZXjhGqooNDe3h5P8.D/5h38tzGQpZ/81tHc.zeJX/6', NULL, '2020-02-23 09:17:44', '2020-02-23 09:17:44', NULL, NULL, NULL, NULL),
-(2, 'f name l name', 'u1@gmail.com', NULL, '$2y$10$dVHEwiMR2fogLbtEMHIoFOg0TAiGi0iBsDUN22fT1T9SIjuc8/jEe', NULL, '2020-02-23 09:36:43', '2020-02-23 09:36:43', NULL, NULL, NULL, NULL),
-(3, 'f name l name', 'u2@gmail.com', NULL, '$2y$10$oVqFR6PYQ7tWk5tsY.wJDO.BNSLpJ7xXk.7q4k9c4jxh2aZPo/tRC', NULL, '2020-02-23 09:37:57', '2020-02-23 09:37:57', NULL, NULL, NULL, NULL),
-(4, 'f name l name', 'u3@gmail.com', NULL, '$2y$10$7MpmDuscBXywbwqLHncTXuMqnBb8vJfpWKfpHUqvyO.Jb.yZH8G2y', NULL, '2020-02-23 10:37:05', '2020-02-23 10:37:05', NULL, NULL, NULL, NULL),
-(5, 'f name l name', 'u4@gmail.com', NULL, '$2y$10$wiGJROIMVh11Yvmk8CxEjexCqmilCpyhy2CMBt9m7s4pUUZQqZkVu', NULL, '2020-02-23 10:39:17', '2020-02-23 10:39:17', NULL, NULL, NULL, NULL),
-(6, 'f name l name', 'u5@gmail.com', NULL, '$2y$10$0p6Nw2lsKF4budvoP5nvAOr4y12pqCGoWkwmLyC7VVTWbm7YwkFAm', NULL, '2020-02-23 10:45:10', '2020-02-23 10:45:10', NULL, NULL, NULL, NULL),
-(7, 'f name l name', 'u6@gmail.com', NULL, '$2y$10$lpSqAtRNQOunp2VzxtLLC.XHib9VXTik3MKCyJc45MisTh3FxACLW', NULL, '2020-02-23 10:48:17', '2020-02-23 10:48:17', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'fname lname', 'u1@gmail.com', NULL, '$2y$10$N5TPFqA0N6zCg8eV5azh8eVC9gLlubr8MAVfhEbevCWScgrOoHATO', NULL, '2020-02-15 21:27:51', '2020-02-15 21:27:51'),
+(2, 'admin', 'admin@gmail.com', NULL, '$2y$10$fDOxVToCoe7oAV7sr6erPOTlqTMU1CY5cudo1mKX.F3hBp0DecCkO', NULL, '2020-02-15 21:32:27', '2020-02-15 21:32:27');
 
 -- --------------------------------------------------------
 
@@ -308,8 +236,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 
 CREATE TABLE `user_details` (
   `id` int(10) UNSIGNED NOT NULL,
-  `p_d_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
+  `loan_amount` int(11) NOT NULL,
+  `loan_duration` int(11) NOT NULL,
+  `monthly_replayment` int(11) NOT NULL,
+  `total_replayment` int(11) NOT NULL,
+  `total_interest` int(11) NOT NULL,
+  `p_d_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `p_d_fName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `p_d_lName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `p_d_mName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -318,7 +251,7 @@ CREATE TABLE `user_details` (
   `c_d_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `c_d_currentAddress` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `c_d_liveDucation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `c_d_residencial` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `c_d_residencial` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `y_i_emplymentStatus` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `y_i_emplyerName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `y_i_jobTitle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -343,15 +276,9 @@ CREATE TABLE `user_details` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `p_d_title`, `user_id`, `p_d_fName`, `p_d_lName`, `p_d_mName`, `p_d_dateOfBirth`, `p_d_noOfDependents`, `c_d_phone`, `c_d_currentAddress`, `c_d_liveDucation`, `c_d_residencial`, `y_i_emplymentStatus`, `y_i_emplyerName`, `y_i_jobTitle`, `y_i_phoneNumber`, `y_i_paidTime`, `y_i_paidWay`, `b_a_accountName`, `b_a_accountNumber`, `b_a_bankName`, `b_a_bvn`, `b_a_accountOld`, `b_a_phoneNumber`, `gov_issue_file_path`, `utility_bill_file_path`, `bank_statement_path`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'title', 1, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-23 09:17:44', '2020-02-23 09:17:44', NULL),
-(2, 'title', 2, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '/opt/lampp/temp/phpToq4IB', '/opt/lampp/temp/phpdMICNn', '/opt/lampp/temp/phppl9bS9', '2020-02-23 09:36:43', '2020-02-23 09:36:43', NULL),
-(3, 'title', 3, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-23 09:37:57', '2020-02-23 09:37:57', NULL),
-(4, 'title', 4, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '/opt/lampp/temp/phpto23a8', '/opt/lampp/temp/phpzrYpu6', '/opt/lampp/temp/phpdHjSN4', '2020-02-23 10:37:05', '2020-02-23 10:37:05', NULL),
-(5, 'title', 4, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '/opt/lampp/temp/phpD94Hft', '/opt/lampp/temp/phpr7gAHR', '/opt/lampp/temp/phpZcFy9f', '2020-02-23 10:38:55', '2020-02-23 10:38:55', NULL),
-(6, 'title', 5, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-23 10:39:17', '2020-02-23 10:39:17', NULL),
-(7, 'title', 6, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-23 10:45:11', '2020-02-23 10:45:11', NULL),
-(8, 'title', 7, 'f name', 'l name', 'm name', '2020-02-22', 23, '(+92)2356142574', 'aslkdjf', 'lskd', 'owner', 'Full time employed', 'name', 'j dkna', '(+92)2356142574', 'weekly', 'Bank deposits', 'a name', '283749832', 'lasdkjf', 'aslkdjf', 'one', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-23 10:48:18', '2020-02-23 10:48:18', NULL);
+INSERT INTO `user_details` (`id`, `user_id`, `loan_amount`, `loan_duration`, `monthly_replayment`, `total_replayment`, `total_interest`, `p_d_title`, `p_d_fName`, `p_d_lName`, `p_d_mName`, `p_d_dateOfBirth`, `p_d_noOfDependents`, `c_d_phone`, `c_d_currentAddress`, `c_d_liveDucation`, `c_d_residencial`, `y_i_emplymentStatus`, `y_i_emplyerName`, `y_i_jobTitle`, `y_i_phoneNumber`, `y_i_paidTime`, `y_i_paidWay`, `b_a_accountName`, `b_a_accountNumber`, `b_a_bankName`, `b_a_bvn`, `b_a_accountOld`, `b_a_phoneNumber`, `gov_issue_file_path`, `utility_bill_file_path`, `bank_statement_path`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 2141225, 3, 1141986, 1141986, 1284735, 'title 1', 'fname', 'lname', 'm name', '2020-02-22', 12, '(+92)2356142574', '55, Crecent Road, Dhanmondi', 'one', 'Tenant', 'Part time employed', 'e name', 'j titile', '(+92)2356142574', 'weekly', 'cheque', 'a name', '234234', 'b name', 'lasdkfj23', '2', '(+92)2356142574', '/opt/lampp/temp/phpC9uXjA', '/opt/lampp/temp/phpcc77hL', '/opt/lampp/temp/phpM9NlgW', '2020-02-15 21:27:52', '2020-02-15 21:27:52', NULL),
+(2, 2, 2141225, 3, 1141986, 1141986, 1284735, 'title 1', 'fname', 'lname', 'm name', '2020-02-22', 12, '(+92)2356142574', '55, Crecent Road, Dhanmondi', 'one', 'Tenant', 'Part time employed', 'e name', 'j titile', '(+92)2356142574', 'weekly', 'cheque', 'a name', '234234', 'b name', 'lasdkfj23', '2', '(+92)2356142574', '[object Object]', '[object Object]', '[object Object]', '2020-02-15 21:32:28', '2020-02-15 21:32:28', NULL);
 
 --
 -- Indexes for dumped tables
@@ -367,25 +294,6 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `histories`
 --
 ALTER TABLE `histories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jobs`
---
-ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `jobs_queue_index` (`queue`);
-
---
--- Indexes for table `loans`
---
-ALTER TABLE `loans`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `loan_requests`
---
-ALTER TABLE `loan_requests`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -434,19 +342,11 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `subscriptions`
---
-ALTER TABLE `subscriptions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subscriptions_user_id_stripe_status_index` (`user_id`,`stripe_status`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_stripe_id_index` (`stripe_id`);
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- Indexes for table `user_details`
@@ -468,31 +368,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `histories`
 --
 ALTER TABLE `histories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `jobs`
---
-ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `loans`
---
-ALTER TABLE `loans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `loan_requests`
---
-ALTER TABLE `loan_requests`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -507,22 +389,16 @@ ALTER TABLE `oauth_personal_access_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `subscriptions`
---
-ALTER TABLE `subscriptions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
