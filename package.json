@@ -28,7 +28,7 @@
         "@fullcalendar/core": "^4.4.0",
         "@fullcalendar/daygrid": "^4.4.0",
         "@fullcalendar/vue": "^4.4.0",
-        "moment": "^2.24.0",
+        "moment": "^2.29.2",
         "toastr": "^2.1.4",
         "vee-validate": "^3.2.4",
         "vue-cal": "^2.24.0",
